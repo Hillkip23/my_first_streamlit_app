@@ -78,7 +78,7 @@ The 5 changes I made were:
 - Change 5,6,7,8: Size, Color, Opacity, Fill
 """)
 
-scatter = alt.Chart(df,title='WHO New Chart title').mark_point(size=100, opacity=.9, fill='green', color='green').encode(
+scatter = alt.Chart(df,title='WHO New Chart title').mark_point(size=100, opacity=.9, fill='red', color='red').encode(
     alt.X('x',title="my new x-axis title"),
     alt.Y('y',title="My new y-axis"),
     tooltip = ['x', 'y']
@@ -87,26 +87,28 @@ scatter = alt.Chart(df,title='WHO New Chart title').mark_point(size=100, opacity
 st.altair_chart(scatter, use_container_width=True)
 
 st.markdown(
-"**QUESTION 4**: Explore on your own!  Go visit https://altair-viz.github.io/gallery/index.html. \n "
-"Pick a random visual, make two visual changes to it, document those changes, and plot the visual.  \n"
-"You may need to pip install in our terminal for example pip install vega_datasets "
+"**QUESTION 4**: I explored on the WHO dataset and plotted a visual with some changes. \n"
+" Lets find out "
 )
 
 st.markdown("""
 The 2 changes I made were:
-- Change 1
-- Change 2
+- Change 1: Tooltip added
+- Change 2: x-axis label
+- Change 3: y-axis label
+- Change 4: Chart title
 """
 )
+
 
 
 source = pd.read_csv('WHO_data.csv')
 st.write(source)
 
-bar = alt.Chart(source).mark_bar().encode(
+bar = alt.Chart(source, title= 'WHO Income_Per_Capita').mark_bar(size=100, opacity=.9, fill='red', color='red').encode(
     alt.X("Income_Per_Capita:Q", bin=True),
     y='count()',
+   
 )
 
 st.altair_chart(bar, use_container_width=True)
-
