@@ -5,7 +5,7 @@ import numpy as np
 import pandas as pd
 from vega_datasets import data
 
-st.header('Homework 1')
+st.header('Homework 2')
 
 
 st.markdown(
@@ -78,7 +78,7 @@ The 5 changes I made were:
 - Change 5,6,7,8: Size, Color, Opacity, Fill
 """)
 
-scatter = alt.Chart(df,title='My new chart title').mark_point(size=100, opacity=.9, fill='green', color='green').encode(
+scatter = alt.Chart(df,title='WHO New Chart title').mark_point(size=100, opacity=.9, fill='green', color='green').encode(
     alt.X('x',title="my new x-axis title"),
     alt.Y('y',title="My new y-axis"),
     tooltip = ['x', 'y']
@@ -100,11 +100,11 @@ The 2 changes I made were:
 )
 
 
-source = pd.read_json('imdb.json')
+source = pd.read_csv('WHO_data.csv')
 st.write(source)
 
 bar = alt.Chart(source).mark_bar().encode(
-    alt.X("IMDB_Rating:Q", bin=True),
+    alt.X("Income_Per_Capita:Q", bin=True),
     y='count()',
 )
 
